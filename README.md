@@ -1,0 +1,2 @@
+# Valokuvagalleria-tietokantasovellus-koulu
+Tietojenkäsittelytieteen Tietokantasovellus -kurssille tehty harjoitustyö
