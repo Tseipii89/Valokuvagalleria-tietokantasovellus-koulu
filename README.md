@@ -12,3 +12,5 @@ Toimintoja:
 - Kuvista tykkääminen (monesta moneen taulu)
 - Etusivun kuvasuodatus hakukriteerien perusteella
 
+## Tietokantakaavio
+
