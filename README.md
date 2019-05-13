@@ -14,3 +14,4 @@ Toimintoja:
 
 ## Tietokantakaavio
 
+![alt text](https://github.com/Tseipii89/Valokuvagalleria-tietokantasovellus-koulu/blob/master/Tietokantasovellus.png)
