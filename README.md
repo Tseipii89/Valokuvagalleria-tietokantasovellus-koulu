@@ -14,4 +14,4 @@ Toimintoja:
 
 ## Tietokantakaavio
 
-![alt text](tietokanta.png)
+![alt text](tietokanta.PNG)
