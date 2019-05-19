@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('pictures_create') }}">
+  <input type="text" name="path"/>
+  <input type="submit" value="Lisää kuva"/>
+</form>
+{% endblock %}

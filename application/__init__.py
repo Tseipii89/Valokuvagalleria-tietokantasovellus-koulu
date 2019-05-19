@@ -4,10 +4,12 @@ app = Flask(__name__)
 
 # Tuodaan SQLAlchemy käyttöön
 from flask_sqlalchemy import SQLAlchemy
+
 # Käytetään gallery.db-nimistä SQLite-tietokantaa. Kolme vinoviivaa
 # kertoo, tiedosto sijaitsee tämän sovelluksen tiedostojen kanssa
 # samassa paikassa
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///gallery.db"
+
 # Pyydetään SQLAlchemyä tulostamaan kaikki SQL-kyselyt
 app.config["SQLALCHEMY_ECHO"] = True
 
@@ -18,6 +20,7 @@ db = SQLAlchemy(app)
 from application import views
 
 from application.pictures import models
+from application.pictures import views
 
 
 # Luodaan lopulta tarvittavat tietokantataulut
