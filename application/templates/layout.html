@@ -6,6 +6,12 @@
   </head>
 
   <body>
+
+      <ul>
+          <li><a href="{{ url_for('pictures_index') }}">Näytä kaikki kuvat</a></li>
+          <li><a href="{{ url_for('pictures_form') }}">Lisää kuva</a></li>
+      </ul>
+
     {% block body %}
       <p>
         Content.
