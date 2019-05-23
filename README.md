@@ -5,6 +5,8 @@ Harjoitustyössä tehdään valokuvagalleria sovellus, johon käyttäjät voivat
 
 Kuvia voidaan suodattaa hashtagien/päivämäärän/käyttäjän mukaan. Kuvat tulevat oletusarvoisesti tykätyimmät kuvat ensin, mutta kuvat voidaan myös järjestää päinvastaiseen järjestykseen, eli vähiten tykätty kuva ensin.
 
+[Linkki Herokun live-versioon](https://tietokanta-harjoitustyo.herokuapp.com/)
+
 Toimintoja:
 - Kirjautuminen
 - Kuvan lisäys ja poisto
