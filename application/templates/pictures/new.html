@@ -2,7 +2,29 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('pictures_create') }}">
-  <input type="text" name="path"/>
-  <input type="submit" value="Lisää kuva"/>
-</form>
+    <table>
+        <tr>
+          <td>
+            {{ form.path.label }}
+          </td>
+          <td>
+            {{ form.path }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              {{ form.date_taken.label }}
+          </td>
+          <td>
+              {{ form.date_taken }}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+              <input type="submit" value="Lisää kuva"/>
+          </td>
+        </tr>
+    </table>    
+  </form>
+  
 {% endblock %}

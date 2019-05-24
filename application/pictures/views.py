@@ -1,6 +1,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.pictures.models import Picture
+from application.pictures.forms import PictureForm
 
 
 @app.route("/pictures", methods=["GET"])
@@ -9,7 +10,7 @@ def pictures_index():
 
 @app.route("/pictures/new/")
 def pictures_form():
-    return render_template("pictures/new.html")
+    return render_template("pictures/new.html", form = PictureForm())
 
 @app.route("/delete_pictures/<picture_id>/", methods=["POST"])
 def remove_picture(picture_id):
@@ -22,9 +23,14 @@ def remove_picture(picture_id):
 
 @app.route("/pictures/", methods=["POST"])
 def pictures_create():
-    vastaus = Picture(request.form.get("path"))
+    form = PictureForm(request.form)
 
-    db.session().add(vastaus)
+    # Otetaan talteen formista saadut tiedot
+    
+    pic = Picture(form.path.data)
+    pic.date_taken = form.date_taken.data
+
+    db.session().add(pic)
     db.session().commit()
 
     return redirect(url_for("pictures_index"))
