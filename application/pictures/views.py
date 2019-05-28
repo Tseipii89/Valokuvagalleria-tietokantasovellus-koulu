@@ -24,6 +24,9 @@ def remove_picture(picture_id):
 @app.route("/pictures/", methods=["POST"])
 def pictures_create():
     form = PictureForm(request.form)
+    # Tarkistetaan lomakkeen tietojen oikeamuotoisuus
+    if not form.validate():
+        return render_template("pictures/new.html", form = form)
 
     # Otetaan talteen formista saadut tiedot
     
