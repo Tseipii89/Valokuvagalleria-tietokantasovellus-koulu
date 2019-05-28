@@ -6,7 +6,14 @@
   </head>
 
   <body>
-
+    {% if current_user.is_authenticated %}
+      <p>
+        Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+       </p>
+    {% else %}
+       <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+       <a href="{{ url_for('register_form') }}">Rekisteröidy</a>
+    {% endif %}
       <ul>
           <li><a href="{{ url_for('pictures_index') }}">Näytä kaikki kuvat</a></li>
           <li><a href="{{ url_for('pictures_form') }}">Lisää kuva</a></li>
