@@ -1,11 +1,13 @@
 ### User Storyt
-- Sivun kävijänä näen listan kaikista kuvista, niiden ottamisajankohdasta, tykkäyksistä ja hashtageistä
-- ~~Uutena käyttäjänä voin luoda itselleni uuden tilin~~ **Toiminnallisuus lisätty 28.5.**
+- ~~Sivun kävijänä näen listan kaikista kuvista~~ **Toiminnallisuus lisätty 28.5.**
+- Sivun kävijänä näen listan kaikista kuvien ottamisajankohdasta
+- Sivun kävijänä näen listan kaikista kuvien tykkäyksistä
+- Sivun kävijänä näen listan kaikista kuvien hashtageistä
 - Uutena käyttäjänä en voi luoda tiliä samalla käyttäjänimellä, joka on jo kannassa
-- Käyttäjänä voin kirjautua sisään applikaatioon
-- Käyttäjänä voin kirjautua ulos applikaatiosta
-- Sisäänkirjautuneena käyttäjänä voin lisätä kuvan
-- Sisäänkirjautuneena käyttäjänä voin poistaa oman aikaisemmin lisäämäni kuvan
+- ~~Käyttäjänä voin kirjautua sisään applikaatioon~~ **Toiminnallisuus lisätty 28.5.**
+- ~~Käyttäjänä voin kirjautua ulos applikaatiosta~~ **Toiminnallisuus lisätty 28.5.**
+- ~~Sisäänkirjautuneena käyttäjänä voin lisätä kuvan~~ **Toiminnallisuus lisätty 30.5.**
+- ~~Sisäänkirjautuneena käyttäjänä voin poistaa oman aikaisemmin lisäämäni kuvan~~ **Toiminnallisuus lisätty 30.5.**
 - Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle kuvan ottamispäivämäärän
 - Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle hashtagin
 - Sisäänkirjautuneena käyttäjänä en voi lisätä kuvalle samaa hashtagia useampaa kertaa
