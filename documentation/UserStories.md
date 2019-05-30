@@ -1,6 +1,6 @@
 ### User Storyt
 - Sivun kävijänä näen listan kaikista kuvista, niiden ottamisajankohdasta, tykkäyksistä ja hashtageistä
-- ~~Uutena käyttäjänä voin luoda itselleni uuden tilin~~ Toiminnallisuus lisätty 28.5.
+- ~~Uutena käyttäjänä voin luoda itselleni uuden tilin~~ **Toiminnallisuus lisätty 28.5.**
 - Uutena käyttäjänä en voi luoda tiliä samalla käyttäjänimellä, joka on jo kannassa
 - Käyttäjänä voin kirjautua sisään applikaatioon
 - Käyttäjänä voin kirjautua ulos applikaatiosta
