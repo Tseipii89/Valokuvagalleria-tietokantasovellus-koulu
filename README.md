@@ -14,28 +14,6 @@ Kuvia voidaan suodattaa hashtagien/päivämäärän/käyttäjän mukaan. Kuvat t
 - Kuvista tykkääminen (monesta moneen taulu)
 - Etusivun kuvasuodatus hakukriteerien perusteella
 
-### User Storyt
-- Sivun kävijänä näen listan kaikista kuvista, niiden ottamisajankohdasta, tykkäyksistä ja hashtageistä
-- Uutena käyttäjänä voin luoda itselleni uuden tilin
-- Uutena käyttäjänä en voi luoda tiliä samalla käyttäjänimellä, joka on jo kannassa
-- Käyttäjänä voin kirjautua sisään applikaatioon
-- Käyttäjänä voin kirjautua ulos applikaatiosta
-- Sisäänkirjautuneena käyttäjänä voin lisätä kuvan
-- Sisäänkirjautuneena käyttäjänä voin poistaa oman aikaisemmin lisäämäni kuvan
-- Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle kuvan ottamispäivämäärän
-- Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle hashtagin
-- Sisäänkirjautuneena käyttäjänä en voi lisätä kuvalle samaa hashtagia useampaa kertaa
-- Sisäänkirjautuneena käyttäjänä en voi lisätä muiden kuville hashtagejä
-- Sisäänkirjautuneena käyttäjänä en voi poistaa muiden kuvia käyttäjien kuvia
-- Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan ottamispäivämäärää
-- Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan hashtagejä
-- Sisäänkirjautuneena käyttäjänä voin tykätä kuvista
-- Sisäänkirjautuneena käyttäjänä voin tykätä kuvasta vain kerran
-- Sisäänkirjautuneena käyttäjänä voin poistaa tykkäykseni
-
-
-
-
 ## Tietokantakaavio
 
 ![alt text](tietokanta.PNG)
