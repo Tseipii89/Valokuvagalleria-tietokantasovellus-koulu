@@ -3,9 +3,14 @@ app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
 
-# Käytetään gallery.db-nimistä SQLite-tietokantaa
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///gallery.db"
-app.config["SQLALCHEMY_ECHO"] = True
+# Eritetään tuontanto ja kehitysympäristö
+import os
+
+if os.environ.get("HEROKU"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///gallery.db"    
+    app.config["SQLALCHEMY_ECHO"] = True 
 
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
@@ -40,4 +45,7 @@ def load_user(user_id):
 
 
 # Luodaan lopulta tarvittavat tietokantataulut
-db.create_all()
+try:
+    db.create_all()
+except:
+    pass    
