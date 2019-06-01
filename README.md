@@ -8,11 +8,15 @@ Kuvia voidaan suodattaa hashtagien/päivämäärän/käyttäjän mukaan. Kuvat t
 ## [Linkki Herokun live-versioon](https://tietokanta-harjoitustyo.herokuapp.com/)
 
 ### Toimintoja:
-- Kirjautuminen. 
+- Kirjautuminen. Testitunnukset käyttäjätunnus: Testi, salasana: Testi
 - Kuvan lisäys ja poisto. 
 - Kuvien tietojen muokkaus (päivämäärä, hashtag)
 - Kuvista tykkääminen (monesta moneen taulu)
 - Etusivun kuvasuodatus hakukriteerien perusteella
+
+[Linkki UserStoreihin](documentation/UserStories.md)
+
+
 
 ## Tietokantakaavio
 

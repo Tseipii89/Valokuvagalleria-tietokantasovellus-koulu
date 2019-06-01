@@ -43,6 +43,8 @@ login_manager.login_message = "Kirjaudu sisään käyttääksesi tätä toiminna
 def load_user(user_id):
     return User.query.get(user_id)
 
+# Tuodaan tykkäykset
+from application.likes import models
 
 # Luodaan lopulta tarvittavat tietokantataulut
 try:

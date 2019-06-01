@@ -4,7 +4,6 @@ from flask_login import login_required, current_user
 from application.pictures.models import Picture
 from application.pictures.forms import PictureForm
 
-
 @app.route("/pictures", methods=["GET"])
 def pictures_index():
     return render_template("pictures/list.html", pictures = Picture.query.all())
@@ -45,3 +44,4 @@ def pictures_create():
     db.session().commit()
 
     return redirect(url_for("pictures_index"))
+

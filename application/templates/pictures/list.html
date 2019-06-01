@@ -8,8 +8,8 @@
         <img src="{{ picture.path }}" />
         <p>{{ picture.date_taken }}</p>
     </div>
-    <form method="POST" action="{{url_for('remove_picture', picture_id = picture.id)}}"> 
-        <input type="hidden" name="_method" value="DELETE">    
+
+    <form method="POST" action="{{url_for('remove_picture', picture_id = picture.id)}}">    
         <input type="submit" value="Poista!">
     </form>
 

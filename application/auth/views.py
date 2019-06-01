@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user
 
 from application import app, db
@@ -39,8 +39,12 @@ def register_create():
     # Otetaan talteen formista saadut tiedot
     
     newUser = User(name=form.name.data, username=form.username.data, password=form.password.data)
-
-    db.session().add(newUser)
-    db.session().commit()
-
-    return redirect(url_for("index"))
+    user = User.query.filter_by(name=form.name.data, username=form.username.data).first()
+    if not user:
+        db.session().add(newUser)
+        db.session().commit()
+        return redirect(url_for("index"))
+    else:
+        flash('Käyttäjätunnus on jo käytössä')
+        return redirect(url_for("index"))
+    
