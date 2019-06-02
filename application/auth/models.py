@@ -9,8 +9,6 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    likes = db.relationship('Picture', backref='liker')
-
 
     def __init__(self, name, username, password):
         self.name = name
