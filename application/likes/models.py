@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 
 class Like(db.Model):
     
-    __tablename__ = "like"
+    __tablename__ = "liked"
     __table_args__ = (
         db.PrimaryKeyConstraint('account_id', 'picture_id'),
     )
@@ -20,7 +20,7 @@ class Like(db.Model):
 
     @staticmethod
     def how_many_likes():
-        stmt = text("SELECT COUNT(*) FROM like;")
+        stmt = text("SELECT COUNT(*) FROM liked;")
         res = db.engine.execute(stmt)
 
         
@@ -31,7 +31,7 @@ class Like(db.Model):
 
     @staticmethod
     def find_users_with_like():
-        stmt = text("SELECT account_id FROM like;")
+        stmt = text("SELECT account_id FROM liked;")
         res = db.engine.execute(stmt)
 
         response = []
