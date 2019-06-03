@@ -20,12 +20,12 @@ class Like(db.Model):
 
     @staticmethod
     def how_many_likes():
-        stmt = text("SELECT COUNT(*) FROM liked;")
+        stmt = text("SELECT picture_id, COUNT(*) FROM liked GROUP BY picture_id;")
         res = db.engine.execute(stmt)
 
-        
+        response = []
         for row in res:
-            response = row[0]
+            response.append({"id": row[0], "count": row[1]})
 
         return response 
 
