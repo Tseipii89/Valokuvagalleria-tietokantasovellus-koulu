@@ -20,4 +20,4 @@ Kuvia voidaan suodattaa hashtagien/päivämäärän/käyttäjän mukaan. Kuvat t
 
 ## Tietokantakaavio
 
-![alt text](tietokanta.PNG)
+![alt text](documentation/tietokanta.PNG)

@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    {% if currentUser.id != null %}
+    {% if currentUser.id == null %}
       <h1>Kirjaudu sisään tykätäksesi ja lisätäksesi kuvia!</h1>
     {% endif %}  
 
@@ -14,9 +14,12 @@
     <div>
         <img src="{{ picture.path }}" />
         <p>{{ picture.date_taken }}</p>
-    
 
-        {% if currentUser.id != null %}
+            {% for h in picture.hashtags %}
+              <h2>{{ h.hashtag }}</h2>
+            {% endfor %}
+
+        
           {% for pic in how_many %}
             {% if  picture.id == pic.id %}
               <p>Tästä kuvasta on tykätty {{ pic.count }} kertaa</p>
@@ -24,6 +27,7 @@
               <p>Tästä kuvasta ei ole vielä tykätty :( Ole ensimmäinen tykkääjä!</p>
             {% endif %}
           {% endfor %}
+        {% if currentUser.id != null %}  
           {% if currentUser.id in find_like %}
             <form method="POST" action="{{ url_for('likes_delete', picture_id = picture.id)}}">
               <table>
@@ -44,10 +48,6 @@
               </table>  
             </form>
           {% endif %} 
-
-
-        {% else %} 
-            
         {% endif %}   
   </div>
     

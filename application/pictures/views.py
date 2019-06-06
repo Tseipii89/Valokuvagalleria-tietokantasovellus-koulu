@@ -2,6 +2,8 @@ from application import app, db
 from flask import redirect, render_template, request, url_for, flash, session
 from flask_login import login_required, current_user
 from application.pictures.models import Picture
+from application.pictures.models import Hashtag
+from application.pictures.models import hashtag_table
 from application.pictures.forms import PictureForm
 from application.likes.models import Like
 
@@ -12,7 +14,8 @@ def pictures_index():
         pictures = Picture.query.all(), 
         likes = Like.query.all(), 
         find_like=Like.find_users_with_like(),
-        how_many=Like.how_many_likes()
+        how_many=Like.how_many_likes(),
+        all_hashtags=Hashtag.query.all()
     )
 
 @app.route("/pictures/new/")
@@ -47,8 +50,15 @@ def pictures_create():
     pic.date_taken = form.date_taken.data
     pic.account_id = current_user.id
 
+    #Lisätään Hashtag
+    hashtag = Hashtag(form.hashtags.data)
+
+    pic.hashtags.append(hashtag)
+
     db.session().add(pic)
     db.session().commit()
+
+    
 
     return redirect(url_for("pictures_index"))
 

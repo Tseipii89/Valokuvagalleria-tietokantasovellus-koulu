@@ -2,15 +2,15 @@
 - ~~Sivun kävijänä näen listan kaikista kuvista~~ **Toiminnallisuus lisätty 28.5.**
 - ~~Sivun kävijänä näen listan kaikista kuvien ottamisajankohdasta~~ **Toiminnallisuus lisätty 28.5.**
 - ~~Sivun kävijänä näen määrän kuvien tykkäyksistä~~ **Toiminnallisuus lisätty 2.6.**
-- Sivun kävijänä näen listan kaikista kuvien hashtageistä
+- ~~Sivun kävijänä näen listan kaikista kuvien hashtageistä~~ **Toiminnallisuus lisätty 6.6.**
 - ~~Uutena käyttäjänä en voi luoda tiliä samalla käyttäjänimellä, joka on jo kannassa~~ **Toiminnallisuus lisätty 31.5.**
 - ~~Käyttäjänä voin kirjautua sisään applikaatioon~~ **Toiminnallisuus lisätty 28.5.**
 - ~~Käyttäjänä voin kirjautua ulos applikaatiosta~~ **Toiminnallisuus lisätty 28.5.**
 - ~~Sisäänkirjautuneena käyttäjänä voin lisätä kuvan~~ **Toiminnallisuus lisätty 30.5.**
 - ~~Sisäänkirjautuneena käyttäjänä voin poistaa oman aikaisemmin lisäämäni kuvan~~ **Toiminnallisuus lisätty 30.5.**
 - ~~Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle kuvan ottamispäivämäärän~~ **Toiminnallisuus lisätty 30.5.**
-- Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle hashtagin
-- Sisäänkirjautuneena käyttäjänä en voi lisätä kuvalle samaa hashtagia useampaa kertaa
+- ~~Sisäänkirjautuneena kuvanomistajana voin lisätä kuvalle hashtagin~~ **Toiminnallisuus lisätty 6.6.**
+- Sisäänkirjautuneena kuvanomistajana en voi lisätä kuvalle samaa hashtagia useampaa kertaa
 - Sisäänkirjautuneena käyttäjänä en voi lisätä muiden kuville hashtagejä
 - ~~Sisäänkirjautuneena käyttäjänä en voi poistaa muiden kuvia käyttäjien kuvia~~ **Toiminnallisuus lisätty 28.5.**
 - Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan ottamispäivämäärää
@@ -18,3 +18,8 @@
 - ~~Sisäänkirjautuneena käyttäjänä voin tykätä kuvista~~ **Toiminnallisuus lisätty 2.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin tykätä kuvasta vain kerran~~ **Toiminnallisuus lisätty 2.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin poistaa tykkäykseni~~ **Toiminnallisuus lisätty 2.6.**
+- Kävijänä voin suodattaa kuvat hashtagien mukaan
+- Kävijänä voin suodattaa kuvat päivämäärien mukaan
+- Kävijänä voin suodattaa kuvat käyttäjän mukaan
+- Kävijänä näen eniten tykätyn kuvan ensin
+- Kävijänä voin muokata näkymän niin, että vähiten tykätty kuva tulee näkyviin ensin
