@@ -1,9 +1,9 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for, flash, session
 from flask_login import login_required, current_user
-from application.pictures.models import Picture
-from application.pictures.models import Hashtag
-from application.pictures.models import hashtag_table
+from sqlalchemy import update
+from application.pictures.models import Picture, Hashtag, hashtag_table
+from application.auth.models import User
 from application.pictures.forms import PictureForm
 from application.likes.models import Like
 
@@ -11,7 +11,8 @@ from application.likes.models import Like
 def pictures_index():
     return render_template("pictures/list.html", 
         currentUser = current_user,
-        pictures = Picture.query.all(), 
+        pictures = Picture.query.all(),
+        authors = User.list_userNames(), 
         likes = Like.query.all(), 
         find_like=Like.find_users_with_like(),
         how_many=Like.how_many_likes(),
@@ -22,6 +23,46 @@ def pictures_index():
 @login_required
 def pictures_form():
     return render_template("pictures/new.html", form = PictureForm())
+
+@app.route("/pictures/update/<picture_id>/", methods=["POST","GET"])
+@login_required
+def picture_update(picture_id):
+    if request.method == 'POST':
+        form = PictureForm(request.form)
+        picture = Picture.query.get_or_404(picture_id)
+        picture.path = form.path.data
+        picture.date_taken = form.date_taken.data
+        update_hashtag([form.hashtags.data], picture)
+        db.session().commit()   
+        return redirect(url_for("pictures_index")) 
+    else:    
+        picture = Picture.query.get_or_404(picture_id)
+        form = PictureForm()
+        form.date_taken.data = picture.date_taken
+        form.path.data = picture.path
+
+        inserthashtags = picture.hashtags
+        s = []
+        for h in inserthashtags:
+            s.append(h.hashtag + ",")
+        form.hashtags.data = s
+        return render_template("pictures/edit.html", form = form, picture = picture)
+
+def update_hashtag(hashtags, picture):
+    picture.delete_hashtags(picture.id)
+    print(hashtags)
+    hashtags = hashtags[0]
+    for h in hashtags:
+        
+        
+        if Hashtag.find_hashtags(h):
+            h1 = Hashtag.find_hashtags(h)[0]
+            hasht = Hashtag.query.get_or_404(h1)
+        else: 
+            hasht = Hashtag(h)
+        picture.hashtags.append(hasht)    
+    return
+
 
 @app.route("/delete_pictures/<picture_id>/", methods=["POST"])
 @login_required
@@ -51,9 +92,10 @@ def pictures_create():
     pic.account_id = current_user.id
 
     #Lisätään Hashtag
-    hashtag = Hashtag(form.hashtags.data)
-
-    pic.hashtags.append(hashtag)
+    hashtag = form.hashtags.data
+    for h in hashtag:
+        htinsert = Hashtag(h)
+        pic.hashtags.append(htinsert)
 
     db.session().add(pic)
     db.session().commit()

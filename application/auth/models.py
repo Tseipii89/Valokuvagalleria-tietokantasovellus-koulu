@@ -1,6 +1,6 @@
 from application import db
 from application.Base import Base
-
+from sqlalchemy.sql import text
 
 class User(Base):
 
@@ -9,6 +9,17 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+
+    @staticmethod
+    def list_userNames():
+        stmt = text("SELECT id, name FROM account;")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id": row[0], "name": row[1]})
+
+        return response 
 
     def __init__(self, name, username, password):
         self.name = name
@@ -26,3 +37,5 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+
+    

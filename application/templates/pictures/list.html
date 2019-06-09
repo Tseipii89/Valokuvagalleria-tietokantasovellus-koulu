@@ -14,7 +14,11 @@
     <div>
         <img src="{{ picture.path }}" />
         <p>{{ picture.date_taken }}</p>
-
+        {% for author in authors %}
+          {% if  picture.id == author.id %}
+            <p>{{ author.name }}</p>
+          {% endif %}  
+        {% endfor %}
             {% for h in picture.hashtags %}
               <h2>{{ h.hashtag }}</h2>
             {% endfor %}
@@ -23,10 +27,14 @@
           {% for pic in how_many %}
             {% if  picture.id == pic.id %}
               <p>Tästä kuvasta on tykätty {{ pic.count }} kertaa</p>
-            {% else %} 
-              <p>Tästä kuvasta ei ole vielä tykätty :( Ole ensimmäinen tykkääjä!</p>
             {% endif %}
           {% endfor %}
+
+          {% if how_many is defined and how_many|length < 1 %} 
+              <p>Tästä kuvasta ei ole vielä tykätty :( Ole ensimmäinen tykkääjä!</p>
+          {% endif %}
+          
+          
         {% if currentUser.id != null %}  
           {% if currentUser.id in find_like %}
             <form method="POST" action="{{ url_for('likes_delete', picture_id = picture.id)}}">
@@ -56,9 +64,11 @@
       <form method="POST" action="{{url_for('remove_picture', picture_id = picture.id)}}">    
           <input type="submit" value="Poista!">
       </form>
-  {% endif %}    
+     
     
 
-    {% endfor %}
+        <a class="btn btn-primary" href="{{url_for('picture_update', picture_id = picture.id)}}">Päivitä kuvan tietoja</a> 
+  {% endif %}  
+  {% endfor %}
 
 {% endblock %}

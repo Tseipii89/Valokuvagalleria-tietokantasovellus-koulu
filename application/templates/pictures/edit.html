@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('picture_update', picture_id = picture.id) }}">
+    <table>
+        <tr>
+          <td>
+            {{ form.path.label }}
+          </td>
+          <td>
+            {{ form.path }}
+          </td>
+          <td>
+            <ul>
+              {% for error in form.path.errors %}
+              <li>{{error}}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              {{ form.date_taken.label }}
+          </td>
+          <td>
+              {{ form.date_taken }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+              {{ form.hashtags.label }}
+          </td>
+          <td>
+              {{ form.hashtags }}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+              <input type="submit" value="Lisää kuva"/>
+          </td>
+        </tr>
+    </table>    
+  </form>
+  
+{% endblock %}
