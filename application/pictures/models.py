@@ -68,4 +68,8 @@ class Hashtag(Base):
     def __init__(self, hashtag):
         self.hashtag = hashtag
 
+    @staticmethod
+    def __repr__(self):
+        return self.id    
+
         

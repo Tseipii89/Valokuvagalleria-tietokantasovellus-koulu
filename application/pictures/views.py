@@ -19,6 +19,30 @@ def pictures_index():
         all_hashtags=Hashtag.query.all()
     )
 
+@app.route("/pictures/users/<user_id>", methods=["GET"])
+def pictures_user(user_id):
+    return render_template("pictures/list.html", 
+        currentUser = current_user,
+        pictures = Picture.query.filter_by(account_id=user_id).all(),
+        authors = User.list_userNames(), 
+        likes = Like.query.all(), 
+        find_like=Like.find_users_with_like(),
+        how_many=Like.how_many_likes(),
+        all_hashtags=Hashtag.query.all()
+    )   
+
+@app.route("/pictures/hashtags/<hashtag>", methods=["GET"])
+def pictures_hashtags(hashtag):
+    return render_template("pictures/list.html", 
+        currentUser = current_user,
+        pictures = Picture.query.filter(Picture.hashtags.any(id=hashtag)),
+        authors = User.list_userNames(), 
+        likes = Like.query.all(), 
+        find_like=Like.find_users_with_like(),
+        how_many=Like.how_many_likes(),
+        all_hashtags=Hashtag.query.all()
+    )      
+
 @app.route("/pictures/new/")
 @login_required
 def pictures_form():

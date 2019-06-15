@@ -15,12 +15,12 @@
         <img src="{{ picture.path }}" />
         <p>{{ picture.date_taken }}</p>
         {% for author in authors %}
-          {% if  picture.id == author.id %}
-            <p>{{ author.name }}</p>
+          {% if  picture.account_id == author.id %}
+            <a href="{{ url_for('pictures_user', user_id = author.id)}}">{{ author.name }}</a>
           {% endif %}  
         {% endfor %}
             {% for h in picture.hashtags %}
-              <h2>{{ h.hashtag }}</h2>
+              <h2><a href="{{ url_for('pictures_hashtags', hashtag = h.id)}}">{{ h.hashtag }}</a></h2>
             {% endfor %}
 
         
