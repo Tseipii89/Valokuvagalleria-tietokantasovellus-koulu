@@ -43,8 +43,6 @@ def register_create():
     if not user:
         db.session().add(newUser)
         db.session().commit()
-
-        login_user(user)
         return redirect(url_for("index"))
     else:
         flash('Käyttäjätunnus on jo käytössä')
