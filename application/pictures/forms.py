@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, validators, Field
 from wtforms.widgets import TextInput
 from wtforms.fields.html5 import DateField
+from wtforms.validators import ValidationError
 
 class HashtagListField(Field):
     widget = TextInput()
@@ -16,12 +17,12 @@ class HashtagListField(Field):
         if valuelist:
             self.data = [x.strip() for x in valuelist[0].split(',')]
         else:
-            self.data = [] 
+            self.data = []            
 
 class PictureForm(FlaskForm):
-    path = StringField("Lisää kuvan url", [validators.URL(require_tld=True, message=None)])
+    path = StringField("Lisää kuvan url", [validators.URL(require_tld=True, message="Anna oikeanlainen url -osoite")])
     date_taken = DateField("Kuvan ottamispäivämäärä", format="%Y-%m-%d")
-    hashtags = HashtagListField("Lisää hashtag")
+    hashtags = HashtagListField("Lisää hashtag. Erota hashtagit pilkulla.")
  
     class Meta:
         csrf = False

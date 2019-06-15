@@ -6,13 +6,12 @@ class User(Base):
 
     __tablename__ = "account"
 
-    name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
     @staticmethod
     def list_userNames():
-        stmt = text("SELECT id, name FROM account;")
+        stmt = text("SELECT id, username FROM account;")
         res = db.engine.execute(stmt)
 
         response = []
@@ -21,8 +20,7 @@ class User(Base):
 
         return response 
 
-    def __init__(self, name, username, password):
-        self.name = name
+    def __init__(self, username, password):
         self.username = username
         self.password = password
   

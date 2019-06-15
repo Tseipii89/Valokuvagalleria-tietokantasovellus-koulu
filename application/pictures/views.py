@@ -30,23 +30,30 @@ def picture_update(picture_id):
     if request.method == 'POST':
         form = PictureForm(request.form)
         picture = Picture.query.get_or_404(picture_id)
-        picture.path = form.path.data
-        picture.date_taken = form.date_taken.data
-        update_hashtag([form.hashtags.data], picture)
-        db.session().commit()   
-        return redirect(url_for("pictures_index")) 
+        if current_user.id == picture.account_id:
+            picture.path = form.path.data
+            picture.date_taken = form.date_taken.data
+            update_hashtag([form.hashtags.data], picture)
+            db.session().commit()    
+        else:
+            flash('Sinulla ei ole oikeutta päivittää tätä kuvaa')  
+        return redirect(url_for("pictures_index"))      
     else:    
         picture = Picture.query.get_or_404(picture_id)
-        form = PictureForm()
-        form.date_taken.data = picture.date_taken
-        form.path.data = picture.path
+        if current_user.id == picture.account_id:
+            form = PictureForm()
+            form.date_taken.data = picture.date_taken
+            form.path.data = picture.path
 
-        inserthashtags = picture.hashtags
-        s = []
-        for h in inserthashtags:
-            s.append(h.hashtag + ",")
-        form.hashtags.data = s
-        return render_template("pictures/edit.html", form = form, picture = picture)
+            inserthashtags = picture.hashtags
+            s = []
+            for h in inserthashtags:
+                s.append(h.hashtag + ",")
+            form.hashtags.data = s
+            return render_template("pictures/edit.html", form = form, picture = picture)
+        else:
+            flash('Sinulla ei ole oikeutta päivittää tätä kuvaa')
+            return redirect(url_for("pictures_index"))     
 
 def update_hashtag(hashtags, picture):
     picture.delete_hashtags(picture.id)
@@ -134,9 +141,11 @@ def likes_delete(picture_id):
         "picture_id": picture_id, 
         "account_id": current_user.id
     })
-    db.session().delete(like)
-    db.session().commit()
-
+    if current_user.id == like.account_id:
+        db.session().delete(like)
+        db.session().commit()
+    else:
+        flash('Sinulla ei ole oikeutta poistaa tätä tykkäystä')
     
 
     return redirect(url_for("pictures_index"))    

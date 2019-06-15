@@ -38,11 +38,13 @@ def register_create():
 
     # Otetaan talteen formista saadut tiedot
     
-    newUser = User(name=form.name.data, username=form.username.data, password=form.password.data)
-    user = User.query.filter_by(name=form.name.data, username=form.username.data).first()
+    newUser = User(username=form.username.data, password=form.password.data)
+    user = User.query.filter_by(username=form.username.data).first()
     if not user:
         db.session().add(newUser)
         db.session().commit()
+
+        login_user(user)
         return redirect(url_for("index"))
     else:
         flash('Käyttäjätunnus on jo käytössä')
