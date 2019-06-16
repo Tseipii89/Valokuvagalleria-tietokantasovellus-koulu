@@ -20,6 +20,8 @@ Applikaatio on tehty käyttäen Pythonin Flask -kirjastoa, SQLAlchemyä ja front
 
 [Linkki User Manualiin](documentation/usermanual.md)
 
+[Linkki Instruction Manualiin](documentation/installationl.md)
+
 
 ## Tietokantakaavio
 
