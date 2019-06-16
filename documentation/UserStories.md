@@ -10,8 +10,8 @@
 - ~~Sisäänkirjautuneena käyttäjänä voin poistaa oman aikaisemmin lisäämäni kuvan~~ **Toiminnallisuus lisätty 30.5.**
 - ~~Sisäänkirjautuneena käyttäjänä voin lisätä kuvalle kuvan ottamispäivämäärän~~ **Toiminnallisuus lisätty 30.5.**
 - ~~Sisäänkirjautuneena kuvanomistajana voin lisätä kuvalle hashtagin~~ **Toiminnallisuus lisätty 6.6.**
-- Sisäänkirjautuneena kuvanomistajana en voi lisätä kuvalle samaa hashtagia useampaa kertaa
-- Sisäänkirjautuneena käyttäjänä en voi lisätä muiden kuville hashtagejä
+- ~~Sisäänkirjautuneena kuvanomistajana en voi lisätä kuvalle samaa hashtagia useampaa kertaa~~ **Toiminnallisuus lisätty 6.6.**
+- ~~Sisäänkirjautuneena käyttäjänä en voi lisätä muiden kuville hashtagejä~~ **Toiminnallisuus lisätty 6.6.**
 - ~~Sisäänkirjautuneena käyttäjänä en voi poistaa muiden kuvia käyttäjien kuvia~~ **Toiminnallisuus lisätty 28.5.**
 - ~~Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan ottamispäivämäärää~~ **Toiminnallisuus lisätty 9.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan hashtagejä~~ **Toiminnallisuus lisätty 9.6.**
