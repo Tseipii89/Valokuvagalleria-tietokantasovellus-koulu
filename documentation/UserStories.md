@@ -13,13 +13,13 @@
 - Sisäänkirjautuneena kuvanomistajana en voi lisätä kuvalle samaa hashtagia useampaa kertaa
 - Sisäänkirjautuneena käyttäjänä en voi lisätä muiden kuville hashtagejä
 - ~~Sisäänkirjautuneena käyttäjänä en voi poistaa muiden kuvia käyttäjien kuvia~~ **Toiminnallisuus lisätty 28.5.**
-- Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan ottamispäivämäärää
-- Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan hashtagejä
+- ~~Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan ottamispäivämäärää~~ **Toiminnallisuus lisätty 9.6.**
+- ~~Sisäänkirjautuneena käyttäjänä voin muokata lisäämäni kuvan hashtagejä~~ **Toiminnallisuus lisätty 9.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin tykätä kuvista~~ **Toiminnallisuus lisätty 2.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin tykätä kuvasta vain kerran~~ **Toiminnallisuus lisätty 2.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin poistaa tykkäykseni~~ **Toiminnallisuus lisätty 2.6.**
-- Kävijänä voin suodattaa kuvat hashtagien mukaan
+- ~~Kävijänä voin suodattaa kuvat hashtagien mukaan~~ **Toiminnallisuus lisätty 16.6.**
 - Kävijänä voin suodattaa kuvat päivämäärien mukaan
-- Kävijänä voin suodattaa kuvat käyttäjän mukaan
+- ~~Kävijänä voin suodattaa kuvat käyttäjän mukaan~~ **Toiminnallisuus lisätty 16.6.**
 - Kävijänä näen eniten tykätyn kuvan ensin
 - Kävijänä voin muokata näkymän niin, että vähiten tykätty kuva tulee näkyviin ensin

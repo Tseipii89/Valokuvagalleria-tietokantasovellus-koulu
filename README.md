@@ -5,6 +5,8 @@ Harjoitustyössä tehdään valokuvagalleria sovellus, johon käyttäjät voivat
 
 Kuvia voidaan suodattaa hashtagien/päivämäärän/käyttäjän mukaan. Kuvat tulevat oletusarvoisesti tykätyimmät kuvat ensin, mutta kuvat voidaan myös järjestää päinvastaiseen järjestykseen, eli vähiten tykätty kuva ensin.
 
+Applikaatio on tehty käyttäen Pythonin Flask -kirjastoa, SQLAlchemyä ja frontendin puolella Bootsrap -kirjastoa.
+
 ## [Linkki Herokun live-versioon](https://tietokanta-harjoitustyo.herokuapp.com/)
 
 ### Toimintoja:
@@ -16,6 +18,7 @@ Kuvia voidaan suodattaa hashtagien/päivämäärän/käyttäjän mukaan. Kuvat t
 
 [Linkki UserStoreihin](documentation/UserStories.md)
 
+[Linkki User Manualiin](documentation/usermanual.md)
 
 
 ## Tietokantakaavio
