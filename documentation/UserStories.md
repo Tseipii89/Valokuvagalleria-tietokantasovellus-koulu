@@ -19,7 +19,5 @@
 - ~~Sisäänkirjautuneena käyttäjänä voin tykätä kuvasta vain kerran~~ **Toiminnallisuus lisätty 2.6.**
 - ~~Sisäänkirjautuneena käyttäjänä voin poistaa tykkäykseni~~ **Toiminnallisuus lisätty 2.6.**
 - ~~Kävijänä voin suodattaa kuvat hashtagien mukaan~~ **Toiminnallisuus lisätty 16.6.**
-- Kävijänä voin suodattaa kuvat päivämäärien mukaan
 - ~~Kävijänä voin suodattaa kuvat käyttäjän mukaan~~ **Toiminnallisuus lisätty 16.6.**
-- Kävijänä näen eniten tykätyn kuvan ensin
-- Kävijänä voin muokata näkymän niin, että vähiten tykätty kuva tulee näkyviin ensin
+
