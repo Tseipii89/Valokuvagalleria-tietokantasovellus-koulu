@@ -15,8 +15,7 @@ def pictures_index():
         authors = User.list_userNames(), 
         likes = Like.query.all(), 
         find_like=Like.find_users_with_like(),
-        how_many=Like.how_many_likes(),
-        all_hashtags=Hashtag.query.all()
+        how_many=Like.how_many_likes()
     )
 
 @app.route("/pictures/users/<user_id>", methods=["GET"])
