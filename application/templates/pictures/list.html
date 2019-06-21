@@ -36,7 +36,7 @@
           
           
         {% if currentUser.id != null %}  
-          {% if currentUser.id in find_like %}
+          {% if (currentUser.id, picture.id) in find_like %}
             <form method="POST" action="{{ url_for('likes_delete', picture_id = picture.id)}}">
               <table>
                 <tr>

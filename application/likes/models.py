@@ -31,12 +31,12 @@ class Like(db.Model):
 
     @staticmethod
     def find_users_with_like():
-        stmt = text("SELECT account_id FROM liked;")
+        stmt = text("SELECT account_id, picture_id FROM liked;")
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append(row[0])
+            response.append((row[0], row[1]))
 
         return response    
 
