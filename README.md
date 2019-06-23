@@ -24,6 +24,8 @@ Applikaatio on tehty käyttäen Pythonin Flask -kirjastoa, SQLAlchemyä ja front
 
 [Linkki Restrictions and Future ideas -osioon](documentation/restrictionsAndFutureIdeas.md)
 
+[Linkki Tietorakenteen kuvaukseen](documentation/DataBaseStructure.md)
+
 
 ## Tietokantakaavio
 
