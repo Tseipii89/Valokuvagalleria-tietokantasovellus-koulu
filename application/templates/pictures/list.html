@@ -44,6 +44,7 @@
                 <input type="submit" value="En tykkääkkään!"/>
               </td>
                 </tr>
+              </table>  
             </form>
           {% else %}  
             <form method="POST" action="{{ url_for('likes_create', picture_id = picture.id)}}">

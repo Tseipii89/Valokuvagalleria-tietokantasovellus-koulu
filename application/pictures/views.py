@@ -26,8 +26,7 @@ def pictures_user(user_id):
         authors = User.list_userNames(), 
         likes = Like.query.all(), 
         find_like=Like.find_users_with_like(),
-        how_many=Like.how_many_likes(),
-        all_hashtags=Hashtag.query.all()
+        how_many=Like.how_many_likes()
     )   
 
 @app.route("/pictures/hashtags/<hashtag>", methods=["GET"])
@@ -38,8 +37,7 @@ def pictures_hashtags(hashtag):
         authors = User.list_userNames(), 
         likes = Like.query.all(), 
         find_like=Like.find_users_with_like(),
-        how_many=Like.how_many_likes(),
-        all_hashtags=Hashtag.query.all()
+        how_many=Like.how_many_likes()
     )      
 
 @app.route("/pictures/new/")
@@ -83,14 +81,15 @@ def update_hashtag(hashtags, picture):
     print(hashtags)
     hashtags = hashtags[0]
     for h in hashtags:
-        
-        
         if Hashtag.find_hashtags(h):
             h1 = Hashtag.find_hashtags(h)[0]
             hasht = Hashtag.query.get_or_404(h1)
         else: 
             hasht = Hashtag(h)
-        picture.hashtags.append(hasht)    
+        if not hasht in picture.hashtags:     
+            picture.hashtags.append(hasht)  
+        else:
+            flash('Yritit lisätä kuvalle hashtagin, joka sillä on jo')      
     return
 
 
@@ -125,8 +124,10 @@ def pictures_create():
     hashtag = form.hashtags.data
     for h in hashtag:
         htinsert = Hashtag(h)
-        pic.hashtags.append(htinsert)
-
+        if not hasht in picture.hashtags:     
+            pic.hashtags.append(htinsert) 
+        else:
+            flash('Yritit lisätä kuvalle hashtagin, joka sillä on jo') 
     db.session().add(pic)
     db.session().commit()
 
