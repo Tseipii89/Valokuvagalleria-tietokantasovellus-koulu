@@ -120,18 +120,13 @@ def pictures_create():
     pic.date_taken = form.date_taken.data
     pic.account_id = current_user.id
 
-    #Lisätään Hashtag
-    hashtag = form.hashtags.data
-    for h in hashtag:
-        htinsert = Hashtag(h)
-        if not hasht in picture.hashtags:     
-            pic.hashtags.append(htinsert) 
-        else:
-            flash('Yritit lisätä kuvalle hashtagin, joka sillä on jo') 
     db.session().add(pic)
     db.session().commit()
 
-    
+    #Lisätään Hashtag
+
+    update_hashtag([form.hashtags.data], pic)
+    db.session().commit()    
 
     return redirect(url_for("pictures_index"))
 
