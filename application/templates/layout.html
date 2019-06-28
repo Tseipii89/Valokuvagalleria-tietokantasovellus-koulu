@@ -7,12 +7,15 @@
         {% if messages %}
             <ul class=flashes>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <li>
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+            </li>
             {% endfor %}
             </ul>
         {% endif %}
     {% endwith %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">        
   </head>
 
   <body>
@@ -33,12 +36,14 @@
             </ul>
             <div class="form-inline mt-2 mt-md-0">
                 {% if current_user.is_authenticated %}
-                <p>
-                  Kirjautunut nimellä {{ current_user.username }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+                <p class="white-text">
+                  Kirjautunut nimellä <strong>{{ current_user.username }}</strong>. <a class="btn btn-danger" href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
                 </p>
               {% else %}
-                  <a class="btn btn-primary" href="{{ url_for('auth_login') }}">Kirjaudu</a> 
-                  <a class="btn btn-primary" href="{{ url_for('register_form') }}">Rekisteröidy</a>
+                <div>
+                  <a class="login btn btn-primary" href="{{ url_for('auth_login') }}">Kirjaudu</a> 
+                  <a class="register btn btn-primary" href="{{ url_for('register_form') }}">Rekisteröidy</a>
+                </div>
               {% endif %}
             </div>
         </div>

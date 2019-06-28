@@ -2,74 +2,68 @@
 
 {% block body %}
 
-    {% if currentUser.id == null %}
-      <h1>Kirjaudu sisään tykätäksesi ja lisätäksesi kuvia!</h1>
-    {% endif %}  
+{% if currentUser.id == null %}
+<div class="alert alert-warning" role="alert">Kirjaudu sisään tykätäksesi ja lisätäksesi kuvia!</div>
+{% endif %}
 
 
 
-    
-    {% for picture in pictures %}
+<div class="row">
+  {% for picture in pictures %}
 
-    <div>
-        <img src="{{ picture.path }}" />
-        <p>{{ picture.date_taken }}</p>
-        {% for author in authors %}
-          {% if  picture.account_id == author.id %}
-            <a href="{{ url_for('pictures_user', user_id = author.id)}}">{{ author.name }}</a>
-          {% endif %}  
+  <div class="col-6 images">
+    <img class="rounded" src="{{ picture.path }}" alt="henkilön {{ picture.account_id }} kuva" />
+    <div class="image-info">
+      <p>Kuva otettu: {{ picture.date_taken }}</p>
+      {% for author in authors %}
+      {% if  picture.account_id == author.id %}
+      <p>Kuvanottaja: <a href="{{ url_for('pictures_user', user_id = author.id)}}">{{ author.name }}</a></p>
+      {% endif %}
+      {% endfor %}
+      <p>
+        {% for h in picture.hashtags %}
+
+        <a href="{{ url_for('pictures_hashtags', hashtag = h.id)}}">{{ h.hashtag }}</a> |
+
         {% endfor %}
-            {% for h in picture.hashtags %}
-              <h2><a href="{{ url_for('pictures_hashtags', hashtag = h.id)}}">{{ h.hashtag }}</a></h2>
-            {% endfor %}
+      </p>
 
-        
-          {% for pic in how_many %}
-            {% if  picture.id == pic.id %}
-              <p>Tästä kuvasta on tykätty {{ pic.count }} kertaa</p>
-            {% endif %}
-          {% endfor %}
+      {% for pic in how_many %}
+      {% if  picture.id == pic.id %}
+      <p>Tästä kuvasta on tykätty {{ pic.count }} kertaa</p>
+      {% endif %}
+      {% endfor %}
 
-          {% if how_many is defined and how_many|length < 1 %} 
-              <p>Tästä kuvasta ei ole vielä tykätty :( Ole ensimmäinen tykkääjä!</p>
-          {% endif %}
-          
-          
-        {% if currentUser.id != null %}  
-          {% if (currentUser.id, picture.id) in find_like %}
-            <form method="POST" action="{{ url_for('likes_delete', picture_id = picture.id)}}">
-              <table>
-                <tr>
-              <td colspan="2">
-                <input type="submit" value="En tykkääkkään!"/>
-              </td>
-                </tr>
-              </table>  
-            </form>
-          {% else %}  
-            <form method="POST" action="{{ url_for('likes_create', picture_id = picture.id)}}">
-              <table>
-                <tr>
-                <td colspan="2">
-                  <input type="submit" value="Tykkää!"/>
-                </td>
-                </tr>
-              </table>  
-            </form>
-          {% endif %} 
-        {% endif %}   
-  </div>
-    
+      {% if how_many is defined and how_many|length < 1 %}
+      <p>Tästä kuvasta ei ole vielä tykätty :( Ole ensimmäinen tykkääjä!</p>
+      {% endif %}
 
-  {% if currentUser.id == picture.account_id %}
-      <form method="POST" action="{{url_for('remove_picture', picture_id = picture.id)}}">    
-          <input type="submit" value="Poista!">
+
+      {% if currentUser.id != null %}
+      {% if (currentUser.id, picture.id) in find_like %}
+      <form method="POST" action="{{ url_for('likes_delete', picture_id = picture.id)}}">
+        <input class="btn btn-warning" type="submit" value="En tykkääkkään!" />
       </form>
-     
-    
+      {% else %}
+      <form method="POST" action="{{ url_for('likes_create', picture_id = picture.id)}}">
+        <input class="btn btn-success" type="submit" value="Tykkää!" />
+      </form>
+      {% endif %}
+      {% endif %}
 
-        <a class="btn btn-primary" href="{{url_for('picture_update', picture_id = picture.id)}}">Päivitä kuvan tietoja</a> 
-  {% endif %}  
+
+
+      {% if currentUser.id == picture.account_id %}
+
+      <a class="btn btn-primary" href="{{url_for('picture_update', picture_id = picture.id)}}">Päivitä kuvan tietoja</a>
+      
+      <form method="POST" action="{{url_for('remove_picture', picture_id = picture.id)}}">
+        <input class="btn btn-danger" type="submit" value="Poista!">
+      </form>
+      
+      {% endif %}
+    </div>
+  </div>
   {% endfor %}
-
+</div>
 {% endblock %}

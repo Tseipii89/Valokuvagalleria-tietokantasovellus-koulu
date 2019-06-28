@@ -1,0 +1,52 @@
+/******************/    
+/* Body */
+/******************/
+.white-text {
+    color: #fff;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+/******************/    
+/* Alerts */
+/******************/
+.flashes {
+    list-style: none!important;
+    margin: 0px;
+    padding: 0px;
+}
+
+.alert {
+    margin-top: 1rem;
+}
+
+
+/******************/
+/* Navi */
+/******************/
+.login {
+    margin-right: 10px;
+}
+
+
+/******************/
+/* Image -gallery */
+/******************/
+
+.images img{
+    width: 100%; 
+}
+
+.images .image-info {
+    background: #E6E6FA;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+
+
+
+
