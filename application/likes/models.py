@@ -27,7 +27,14 @@ class Like(db.Model):
         for row in res:
             response.append({"id": row[0], "count": row[1]})
 
-        return response 
+        return response
+     
+    @staticmethod
+    def pic_delete(pic_id):
+        stmt = text("DELETE FROM liked WHERE picture_id = :pic_id;").params(pic_id = pic_id)
+        res = db.engine.execute(stmt)
+
+        return res 
 
     @staticmethod
     def find_users_with_like():

@@ -98,6 +98,7 @@ def update_hashtag(hashtags, picture):
 def remove_picture(picture_id):
     pic = Picture.query.get_or_404(picture_id)
     if current_user.id == pic.account_id:
+        Like.pic_delete(pic.id)
         db.session().delete(pic)
         db.session().commit()
     else:
